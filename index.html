@@ -10,13 +10,12 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      direction: ltr;
     }
-    header {
+    header, footer {
       background-color: #333;
       color: #fff;
-      padding: 1rem;
       text-align: center;
+      padding: 1rem;
     }
     nav {
       display: flex;
@@ -31,22 +30,69 @@
     nav a:hover {
       background-color: #555;
     }
+    .lang-switcher {
+      margin: 1rem;
+      text-align: center;
+    }
+    .lang-switcher button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
     section {
       padding: 2rem;
       text-align: center;
     }
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+    .contact-buttons {
+      margin-top: 2rem;
+    }
+    .contact-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: green;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
     }
   </style>
+  <script>
+    function changeLanguage(lang) {
+      const texts = {
+        de: {
+          title: "Willkommen bei NaviGo Taxi",
+          desc: "Ihr zuverlässiges Taxi in Vorarlberg – 24/7 für Sie unterwegs!",
+          phone: "Telefon: 0676 555 2020",
+          address: "Adresse: Waltergasse 2/1, 6800 Feldkirch",
+          hours: "Öffnungszeiten: 24 Stunden täglich"
+        },
+        en: {
+          title: "Welcome to NaviGo Taxi",
+          desc: "Your reliable taxi service in Vorarlberg – available 24/7!",
+          phone: "Phone: 0676 555 2020",
+          address: "Address: Waltergasse 2/1, 6800 Feldkirch",
+          hours: "Business Hours: 24 hours daily"
+        },
+        ar: {
+          title: "مرحبًا بكم في نافيجو تاكسي",
+          desc: "خدمة التاكسي الموثوقة في فورآرلبرغ – متوفرة 24/7!",
+          phone: "الهاتف: 0676 555 2020",
+          address: "العنوان: Waltergasse 2/1، 6800 فيلدكيرخ",
+          hours: "ساعات العمل: 24 ساعة يوميًا"
+        }
+      };
+
+      document.getElementById("title").innerText = texts[lang].title;
+      document.getElementById("desc").innerText = texts[lang].desc;
+      document.getElementById("phone").innerText = texts[lang].phone;
+      document.getElementById("address").innerText = texts[lang].address;
+      document.getElementById("hours").innerText = texts[lang].hours;
+
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+    }
+  </script>
 </head>
-<body>
+<body onload="changeLanguage('de')">
   <header>
     <h1>NaviGo Taxi</h1>
     <p>Schnell. Sicher. Immer für Sie da.</p>
@@ -56,10 +102,21 @@
     <a href="#">Über uns</a>
     <a href="#">Kontakt</a>
   </nav>
+  <div class="lang-switcher">
+    <button onclick="changeLanguage('de')">Deutsch 🇩🇪</button>
+    <button onclick="changeLanguage('en')">English 🇬🇧</button>
+    <button onclick="changeLanguage('ar')">العربية 🇸🇦</button>
+  </div>
   <section>
-    <h2>Willkommen bei NaviGo Taxi</h2>
-    <p>Ihr zuverlässiges Taxi in Vorarlberg – 24/7 für Sie unterwegs!</p>
-    <p>Telefon: 0676 555 2020</p>
+    <h2 id="title"></h2>
+    <p id="desc"></p>
+    <p id="phone"></p>
+    <p id="address"></p>
+    <p id="hours"></p>
+    <div class="contact-buttons">
+      <a href="tel:06765552020">📞 اتصل الآن</a>
+      <a href="https://wa.me/436765552020" target="_blank">💬 واتساب</a>
+    </div>
   </section>
   <footer>
     <p>&copy; 2025 NaviGo Taxi. Alle Rechte vorbehalten.</p>
