@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NaviGo Taxi</title>
   <style>
+    a { color: #00cc66; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; direction: ltr; }
-    header, footer { background: #333; color: #fff; text-align: center; padding: 1rem; }
-    nav { background: #444; display: flex; justify-content: center; flex-wrap: wrap; }
+    header, footer { background: #000; color: #fff; text-align: center; padding: 1rem; }
+    nav { background: #222; display: flex; justify-content: center; flex-wrap: wrap; }
     nav a { color: #fff; padding: 1rem; text-decoration: none; }
     nav a:hover { background: #555; }
     .lang-switcher { text-align: center; margin: 1rem; }
@@ -17,7 +19,7 @@
     section.active { display: block; }
     form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: auto; text-align: left; }
     input, textarea { padding: 0.5rem; width: 100%; }
-    button[type=submit] { padding: 0.75rem; background: green; color: white; border: none; }
+    button[type=submit] { padding: 0.75rem; background: #00cc66; color: #fff; border: none; }
   </style>
   <script>
     function switchLang(lang) {
@@ -107,7 +109,32 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 NaviGo Taxi. Kontakt: kontakt.navigotaxi@gmail.com</p>
-  </footer>
+    <p>&copy; 2025 NaviGo Taxi | Kontakt: kontakt.navigotaxi@gmail.com | Telefon: 0676 555 2020</p>
+  
+  <section class="de active">
+    <h2>Kontakt</h2>
+    <p>Adresse: Waltergasse 2/1, 6800 Feldkirch</p>
+    <p>Telefon: <a href="tel:+436765552020">0676 555 2020</a></p>
+    <p>E-Mail: <a href="mailto:kontakt.navigotaxi@gmail.com">kontakt.navigotaxi@gmail.com</a></p>
+    <p><a href="https://wa.me/436765552020" target="_blank">💬 WhatsApp schreiben</a></p>
+  </section>
+
+  <section class="en">
+    <h2>Contact Us</h2>
+    <p>Address: Waltergasse 2/1, 6800 Feldkirch</p>
+    <p>Phone: <a href="tel:+436765552020">0676 555 2020</a></p>
+    <p>Email: <a href="mailto:kontakt.navigotaxi@gmail.com">kontakt.navigotaxi@gmail.com</a></p>
+    <p><a href="https://wa.me/436765552020" target="_blank">💬 Chat on WhatsApp</a></p>
+  </section>
+
+  <section class="ar">
+    <h2>اتصل بنا</h2>
+    <p>العنوان: Waltergasse 2/1، 6800 فيلدكيرخ</p>
+    <p>الهاتف: <a href="tel:+436765552020">0676 555 2020</a></p>
+    <p>البريد الإلكتروني: <a href="mailto:kontakt.navigotaxi@gmail.com">kontakt.navigotaxi@gmail.com</a></p>
+    <p><a href="https://wa.me/436765552020" target="_blank">💬 تواصل عبر واتساب</a></p>
+  </section>
+</footer>
+
 </body>
 </html>
