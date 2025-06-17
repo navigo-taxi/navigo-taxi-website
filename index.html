@@ -3,138 +3,122 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NaviGo Taxi</title>
   <style>
-    a { color: #00cc66; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; direction: ltr; }
-    header, footer { background: #000; color: #fff; text-align: center; padding: 1rem; }
-    nav { background: #222; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav a { color: #fff; padding: 1rem; text-decoration: none; }
-    nav a:hover { background: #555; }
-    .lang-switcher { text-align: center; margin: 1rem; }
-    .lang-switcher button { margin: 0.25rem; padding: 0.5rem 1rem; }
-    section { padding: 2rem; text-align: center; display: none; }
-    section.active { display: block; }
-    form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: auto; text-align: left; }
-    input, textarea { padding: 0.5rem; width: 100%; }
-    button[type=submit] { padding: 0.75rem; background: #00cc66; color: #fff; border: none; }
-  </style>
-  <script>
-    function switchLang(lang) {
-      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-      const sections = document.querySelectorAll('section');
-      sections.forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.' + lang).forEach(s => s.classList.add('active'));
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
     }
-  </script>
+    header {
+      background-color: #000;
+      color: #0f0;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+    }
+    nav a {
+      color: #0f0;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #333;
+    }
+    main {
+      padding: 2rem;
+    }
+    footer {
+      background-color: #000;
+      color: #0f0;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .contact-form button {
+      background-color: #0f0;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background-color: #090;
+    }
+  </style>
 </head>
-<body onload="switchLang('de')">
+<body>
   <header>
     <h1>NaviGo Taxi</h1>
     <p>Schnell. Sicher. Immer für Sie da.</p>
   </header>
-
   <nav>
-    <a href="#" onclick="switchLang('de')">Deutsch 🇩🇪</a>
-    <a href="#" onclick="switchLang('en')">English 🇬🇧</a>
-    <a href="#" onclick="switchLang('ar')">العربية 🇸🇦</a>
+    <a href="#about">Über uns</a>
+    <a href="#services">Dienstleistungen</a>
+    <a href="#contact">Kontakt</a>
   </nav>
+  <main>
+    <section id="about">
+      <h2>Über uns</h2>
+      <p>NaviGo Taxi ist Ihr zuverlässiger Partner für sichere und schnelle Fahrten in Vorarlberg. Wir bieten persönlichen Service mit modernen Fahrzeugen und erfahrenen Fahrern.</p>
+    </section>
 
-  <!-- Deutsch -->
-  <section class="de active">
-    <h2>Über uns</h2>
-    <p>Wir sind NaviGo Taxi – Ihr zuverlässiger Partner für sichere und pünktliche Fahrten in Vorarlberg.</p>
-    <h2>Unsere Dienstleistungen</h2>
-    <ul>
-      <li>Stadtfahrten</li>
-      <li>Flughafentransfers</li>
-      <li>Private Buchungen</li>
-      <li>24/7 Service</li>
-    </ul>
-    <h2>Taxi buchen</h2>
-    <form action="https://formsubmit.co/kontakt.navigotaxi@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="tel" name="phone" placeholder="Telefonnummer" required />
-      <input type="datetime-local" name="datetime" required />
-      <input type="text" name="from" placeholder="Startadresse" />
-      <input type="text" name="to" placeholder="Zieladresse" />
-      <button type="submit">Buchung senden</button>
-    </form>
-  </section>
+    <section id="services">
+      <h2>Dienstleistungen</h2>
+      <ul>
+        <li>Stadtfahrten</li>
+        <li>Flughafentransfer</li>
+        <li>Krankenfahrten</li>
+        <li>Dialysefahrten</li>
+        <li>Business-Fahrten</li>
+      </ul>
+    </section>
 
-  <!-- English -->
-  <section class="en">
-    <h2>About Us</h2>
-    <p>We are NaviGo Taxi – your trusted provider for safe and on-time rides across Vorarlberg.</p>
-    <h2>Our Services</h2>
-    <ul>
-      <li>City Rides</li>
-      <li>Airport Transfers</li>
-      <li>Private Bookings</li>
-      <li>24/7 Service</li>
-    </ul>
-    <h2>Book a Taxi</h2>
-    <form action="https://formsubmit.co/kontakt.navigotaxi@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <input type="datetime-local" name="datetime" required />
-      <input type="text" name="from" placeholder="Pickup Address" />
-      <input type="text" name="to" placeholder="Destination Address" />
-      <button type="submit">Submit Booking</button>
-    </form>
-  </section>
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <div class="contact-form">
+        <form action="mailto:info@navigotaxi.at" method="post" enctype="text/plain">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
 
-  <!-- Arabic -->
-  <section class="ar">
-    <h2>من نحن</h2>
-    <p>نحن نافيجو تاكسي – خياركم الموثوق للتنقل الآمن والدقيق في فورآرلبرغ.</p>
-    <h2>خدماتنا</h2>
-    <ul>
-      <li>تنقل داخل المدينة</li>
-      <li>توصيل إلى المطارات</li>
-      <li>حجوزات خاصة</li>
-      <li>خدمة 24 ساعة</li>
-    </ul>
-    <h2>احجز تاكسي</h2>
-    <form action="https://formsubmit.co/kontakt.navigotaxi@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="الاسم" required />
-      <input type="tel" name="phone" placeholder="رقم الهاتف" required />
-      <input type="datetime-local" name="datetime" required />
-      <input type="text" name="from" placeholder="عنوان الانطلاق" />
-      <input type="text" name="to" placeholder="الوجهة" />
-      <button type="submit">إرسال الحجز</button>
-    </form>
-  </section>
+          <label for="email">E-Mail:</label>
+          <input type="email" id="email" name="email" required>
 
+          <label for="message">Nachricht:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Senden</button>
+        </form>
+      </div>
+      <p>Sie erreichen uns auch direkt unter: <a href="mailto:info@navigotaxi.at">info@navigotaxi.at</a></p>
+      <p>Telefon: 0676 555 2020</p>
+      <p>Adresse: Waltergasse 2/1, 6800 Feldkirch</p>
+    </section>
+  </main>
   <footer>
-    <p>&copy; 2025 NaviGo Taxi | Kontakt: kontakt.navigotaxi@gmail.com | Telefon: 0676 555 2020</p>
-  
-  <section class="de active">
-    <h2>Kontakt</h2>
-    <p>Adresse: Waltergasse 2/1, 6800 Feldkirch</p>
-    <p>Telefon: <a href="tel:+436765552020">0676 555 2020</a></p>
-    <p>E-Mail: <a href="mailto:kontakt.navigotaxi@gmail.com">kontakt.navigotaxi@gmail.com</a></p>
-    <p><a href="https://wa.me/436765552020" target="_blank">💬 WhatsApp schreiben</a></p>
-  </section>
-
-  <section class="en">
-    <h2>Contact Us</h2>
-    <p>Address: Waltergasse 2/1, 6800 Feldkirch</p>
-    <p>Phone: <a href="tel:+436765552020">0676 555 2020</a></p>
-    <p>Email: <a href="mailto:kontakt.navigotaxi@gmail.com">kontakt.navigotaxi@gmail.com</a></p>
-    <p><a href="https://wa.me/436765552020" target="_blank">💬 Chat on WhatsApp</a></p>
-  </section>
-
-  <section class="ar">
-    <h2>اتصل بنا</h2>
-    <p>العنوان: Waltergasse 2/1، 6800 فيلدكيرخ</p>
-    <p>الهاتف: <a href="tel:+436765552020">0676 555 2020</a></p>
-    <p>البريد الإلكتروني: <a href="mailto:kontakt.navigotaxi@gmail.com">kontakt.navigotaxi@gmail.com</a></p>
-    <p><a href="https://wa.me/436765552020" target="_blank">💬 تواصل عبر واتساب</a></p>
-  </section>
-</footer>
-
+    <p>&copy; 2025 NaviGo Taxi</p>
+  </footer>
 </body>
 </html>
